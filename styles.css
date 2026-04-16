@@ -396,6 +396,19 @@ a {
     padding-top: 12px;
   }
 
+  .layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .reader {
+    order: 1;
+  }
+
+  .sidebar {
+    order: 2;
+  }
+
   .hero,
   .panel,
   .reader {
@@ -409,6 +422,13 @@ a {
   .reader,
   .panel {
     padding: 16px;
+  }
+
+  .lecture-list,
+  .toc-list {
+    max-height: 42vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .note-pill {
