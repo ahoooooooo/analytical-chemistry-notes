@@ -156,8 +156,8 @@ dp = λ / (2π × sqrt(n1² sin²θ - n2²))
 
 | 效應 | 方向 | 原因 |
 |------|------|------|
-| **Bathochromic shift**（紅移） | λ 增大 | 極性溶劑穩定激發態 |
-| **Hypsochromic shift**（藍移） | λ 減小 | 極性溶劑穩定基態 |
+| **Bathochromic shift**（紅移） | λ 增大 | π→π* 常見：極性溶劑穩定激發態 |
+| **Hypsochromic shift**（藍移） | λ 減小 | n→π* 常見：極性溶劑穩定基態中孤對電子 |
 | **Hyperchromic effect** | ε 增大 | 吸收增強 |
 | **Hypochromic effect** | ε 減小 | 吸收減弱 |
 
