@@ -8,6 +8,14 @@ const lectures = [
     path: "01-Lecture-Notes/L1-光譜學基礎.md",
   },
   {
+    id: "l2",
+    label: "L2",
+    title: "IR 光譜與 FTIR",
+    subtitle: "Infrared absorption, Hooke's law, FTIR advantages",
+    date: "2026-03-13",
+    path: "01-Lecture-Notes/L2-IR光譜與FTIR.md",
+  },
+  {
     id: "l3",
     label: "L3",
     title: "UV-Vis 吸收光譜",
@@ -30,6 +38,22 @@ const lectures = [
     subtitle: "Bragg law, diffraction patterns and XRD analysis",
     date: "2026-04-10",
     path: "01-Lecture-Notes/L5-X光繞射光譜.md",
+  },
+  {
+    id: "supp_ir",
+    label: "S-IR",
+    title: "IR 補充",
+    subtitle: "教科書 Ch.5 補充：ATR、DRIFT、樣品製備、光譜解讀",
+    date: "2026-03-13",
+    path: "01-Lecture-Notes/Supp-IR補充.md",
+  },
+  {
+    id: "supp_uv",
+    label: "S-UV",
+    title: "UV-Vis 補充",
+    subtitle: "Tissue 教科書補充：光譜區域、材料性質、應用",
+    date: "2026-03-20",
+    path: "01-Lecture-Notes/Supp-UV-Vis補充.md",
   },
 ];
 
