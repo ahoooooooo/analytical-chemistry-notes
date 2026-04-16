@@ -1,4 +1,4 @@
-const notes = [
+const lectures = [
   {
     id: "l1",
     label: "L1",
@@ -32,6 +32,75 @@ const notes = [
     path: "01-Lecture-Notes/L5-X光繞射光譜.md",
   },
 ];
+
+const reviews = [
+  {
+    id: "review1",
+    label: "R1",
+    title: "光譜基礎與 IR",
+    subtitle: "光譜總架構、吸收/發射、Beer 定律、選波元件、偵測器",
+    date: "2026-04-16",
+    path: "03-Exam-Prep/GPT總整理-01-光譜基礎與IR.md",
+  },
+  {
+    id: "review2",
+    label: "R2",
+    title: "IR 與 FTIR",
+    subtitle: "IR 原理、FTIR、DTGS/MCT、ATR/DRIFT、Peak Assignment",
+    date: "2026-04-16",
+    path: "03-Exam-Prep/GPT總整理-02-IR與FTIR.md",
+  },
+  {
+    id: "review3",
+    label: "R3",
+    title: "UV-Vis 光譜",
+    subtitle: "UV-Vis、偵測器比較、Band Gap、Tauc Plot",
+    date: "2026-04-16",
+    path: "03-Exam-Prep/GPT總整理-03-UV-Vis光譜.md",
+  },
+  {
+    id: "review4",
+    label: "R4",
+    title: "XAS 光譜",
+    subtitle: "XANES/EXAFS、K-edge/L-edge、Synchrotron",
+    date: "2026-04-16",
+    path: "03-Exam-Prep/GPT總整理-04-XAS光譜.md",
+  },
+  {
+    id: "review5",
+    label: "R5",
+    title: "發射光譜與螢光/磷光",
+    subtitle: "XES、Fluorescence/Phosphorescence、Stokes Shift",
+    date: "2026-04-16",
+    path: "03-Exam-Prep/GPT總整理-05-發射光譜與螢光磷光.md",
+  },
+  {
+    id: "review6",
+    label: "R6",
+    title: "XRD 繞射光譜",
+    subtitle: "Bragg 定律、Miller Index、Rietveld、Scherrer",
+    date: "2026-04-16",
+    path: "03-Exam-Prep/GPT總整理-06-XRD繞射光譜.md",
+  },
+  {
+    id: "review7",
+    label: "R7",
+    title: "考古題：XAS + XRD",
+    subtitle: "XAS 圖譜判讀、XRD 是非題、Cu Ka 波長",
+    date: "2026-04-16",
+    path: "03-Exam-Prep/GPT總整理-07-考古題XAS與XRD.md",
+  },
+  {
+    id: "review8",
+    label: "R8",
+    title: "文獻補充 + 答題格式",
+    subtitle: "Overtone、Fermi Resonance、溶劑效應、老師答題範例",
+    date: "2026-04-16",
+    path: "03-Exam-Prep/GPT總整理-08-文獻補充與答題格式.md",
+  },
+];
+
+const notes = [...lectures, ...reviews];
 
 const notePills = document.querySelector("#note-pills");
 const lectureList = document.querySelector("#lecture-list");
@@ -69,15 +138,31 @@ function getNoteById(id) {
   return notes.find((note) => note.id === id) || notes[0];
 }
 
+function isReview(note) {
+  return note.id.startsWith("review");
+}
+
 function renderNavigation() {
-  notePills.innerHTML = notes
+  const lecturePills = lectures
     .map(
       (note) =>
-        `<button class="note-pill${note.id === activeNoteId ? " active" : ""}" data-note-id="${note.id}">${note.label} <span aria-hidden="true">·</span> ${note.title}</button>`
+        `<button class="note-pill${note.id === activeNoteId ? " active" : ""}" data-note-id="${note.id}">${note.label} · ${note.title}</button>`
     )
     .join("");
 
-  lectureList.innerHTML = notes
+  const reviewPills = reviews
+    .map(
+      (note) =>
+        `<button class="note-pill review-pill${note.id === activeNoteId ? " active" : ""}" data-note-id="${note.id}">${note.label} · ${note.title}</button>`
+    )
+    .join("");
+
+  notePills.innerHTML =
+    `<span class="pill-group-label">Lectures</span>${lecturePills}` +
+    `<span class="pill-divider"></span>` +
+    `<span class="pill-group-label">考前衝刺</span>${reviewPills}`;
+
+  const lectureCards = lectures
     .map(
       (note) => `
         <article class="lecture-card${note.id === activeNoteId ? " active" : ""}" data-note-id="${note.id}">
@@ -89,13 +174,29 @@ function renderNavigation() {
     )
     .join("");
 
+  const reviewCards = reviews
+    .map(
+      (note) => `
+        <article class="lecture-card review-card${note.id === activeNoteId ? " active" : ""}" data-note-id="${note.id}">
+          <h3>${note.label} ${note.title}</h3>
+          <p>${note.subtitle}</p>
+        </article>
+      `
+    )
+    .join("");
+
+  lectureList.innerHTML =
+    `<p class="panel-sublabel">Lectures</p>${lectureCards}` +
+    `<p class="panel-sublabel review-sublabel">考前衝刺總整理</p>${reviewCards}`;
+
   document.querySelectorAll("[data-note-id]").forEach((element) => {
     element.addEventListener("click", () => activateNote(element.dataset.noteId));
   });
 }
 
 function renderReaderMeta(note) {
-  readerKicker.textContent = `${note.label} · 分析化學`;
+  const category = isReview(note) ? "考前衝刺" : "分析化學";
+  readerKicker.textContent = `${note.label} · ${category}`;
   readerTitle.textContent = note.title;
   readerSubtitle.textContent = `${note.subtitle} · ${note.date}`;
   sourceLink.href = githubBase + encodeGithubPath(note.path);
