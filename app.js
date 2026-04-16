@@ -43,6 +43,7 @@ const readerSubtitle = document.querySelector("#reader-subtitle");
 const sourceLink = document.querySelector("#source-link");
 
 const githubBase = "https://github.com/ahoooooooo/analytical-chemistry-notes/blob/main/";
+const notesContent = window.NOTES_CONTENT || {};
 
 let activeNoteId = "";
 
@@ -130,7 +131,7 @@ function postProcessNote() {
   });
 }
 
-async function activateNote(noteId) {
+function activateNote(noteId) {
   const note = getNoteById(noteId);
   activeNoteId = note.id;
   renderNavigation();
@@ -140,12 +141,10 @@ async function activateNote(noteId) {
   tocList.innerHTML = '<p class="muted">整理章節中…</p>';
 
   try {
-    const response = await fetch(note.path);
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
+    const markdown = notesContent[note.id];
+    if (!markdown) {
+      throw new Error("找不到內嵌筆記資料");
     }
-
-    const markdown = await response.text();
     const html = marked.parse(stripFrontmatter(markdown));
     noteBody.innerHTML = html;
     postProcessNote();
