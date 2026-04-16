@@ -96,9 +96,9 @@ Fluorescence 是電子由 **S1 回到 S0** 的放光過程，屬於 **spin-allow
 
 ---
 
-## 題目 6：比較 Dispersive IR 與 FTIR
+## 題目 6：比較傳統色散式 IR 與 FTIR
 
-Dispersive IR 用光柵或單光器一次選一個波長，逐波長掃描，速度慢、throughput 低。FTIR 用 **Michelson interferometer** 同時收集所有波數資訊，先得到 interferogram，再用 **Fourier transform** 轉成光譜。FTIR 具有 **multiplex advantage (Fellgett)**、**throughput advantage (Jacquinot)**、**wavenumber accuracy (Connes)**，因此更快、S/N 更好、解析度更高。
+傳統色散式 IR 用光柵或單光器一次選一個波長，逐波長掃描，速度慢、光通量低。FTIR 用 **Michelson 干涉儀**同時收集所有波數資訊，先得到干涉圖（interferogram），再用**傅立葉轉換**轉成光譜。FTIR 具有三大優勢：**多工優勢（Fellgett）** 同時收集所有頻率、**高光通量優勢（Jacquinot）** 進光量大、**波數精度優勢（Connes）** 用雷射校準，因此更快、訊雜比更好、解析度更高。
 
 ---
 
