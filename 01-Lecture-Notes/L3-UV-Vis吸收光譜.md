@@ -23,17 +23,19 @@ tags:
 
 ### Electronic Transitions（電子躍遷）
 
-當分子吸收 UV-Vis 光，**valence electrons（價電子）從基態提升到激發態**。主要三種躍遷：
+白話說：UV-Vis 光的能量比 IR 高很多，足以把電子從一個軌域「踢」到更高能量的軌域。不同類型的電子需要不同的能量來踢，所以吸收在不同波長 → 這就是我們辨別分子的依據。
 
-1. **π → π\***：發生於**不飽和化合物**（有 C=C, C=O, …）
-2. **n → π\***：發生於**有 lone pair 的分子**（含 N、O 等原子）
-3. **d–d transitions**：發生於**過渡金屬錯合物**，是錯合物呈現**鮮豔顏色**的主因
+主要三種躍遷：
+
+1. **π → π\***：雙鍵或共軛系統裡的 π 電子被激發到反鍵軌域 π\*。這是**最強的吸收**（ε 通常 10³–10⁵），因為 π 和 π\* 軌域空間重疊好。共軛越長 → 吸收越紅移（波長越長），這也是為什麼胡蘿蔔素有顏色（大量共軛雙鍵）
+2. **n → π\***：有 lone pair（孤對電子）的原子（N、O、S）把一個不成鍵的電子丟到 π\* 軌域。這是**弱吸收**（ε 通常 10¹–10²），因為 n 軌域和 π\* 軌域空間重疊差
+3. **d–d transitions**：過渡金屬的 d 電子在分裂的 d 軌域之間跳。通常也是**弱吸收**（symmetry-forbidden），但因為吸收在可見光區所以錯合物常有**鮮豔顏色**
 
 其他還會看到：
 
-- **Charge transfers（電荷轉移）**
-- **Plasmon resonance**（奈米金屬粒子）
-- **Band gap transitions**（半導體）
+- **Charge transfers（電荷轉移）**：電子從配體跑到金屬或反過來，通常是**很強的吸收**
+- **Plasmon resonance**（奈米金屬粒子）：金屬表面的自由電子集體振盪
+- **Band gap transitions**（半導體）：電子從價帶跳到導帶
 
 ### UV-Vis vs IR vs NIR 所能探測的
 
@@ -51,14 +53,16 @@ tags:
 
 **ΔS = 0**（自旋不變才允許躍遷）
 
-Allowed：singlet → singlet、triplet → triplet
-Forbidden：singlet → triplet、triplet → singlet（會改變自旋多重度 spin multiplicity）
+白話說：電子在跳軌域的時候，自旋方向不能翻轉。如果一個躍遷要求電子翻轉自旋（比如從「全部朝上」的狀態翻一個朝下），那這個躍遷就被「禁止」了。
+
+- Allowed：singlet → singlet、triplet → triplet（自旋總數不變）
+- Forbidden：singlet → triplet、triplet → singlet（自旋總數改變）
 
 **推論**：
 
-- Spin-forbidden 躍遷仍然可能發生，但機率很低 → 吸收/發射訊號很**微弱**
-- 在配位化合物中，d–d 躍遷常受 spin selection rule 影響，這也解釋了它們的顏色與強度
-- **High spin d⁵** 的組態（如 [Fe(F₆)]³⁻）：e_g 與 t₂g 全填單一電子（5 個自旋相同），任何 d–d 躍遷都會改變自旋 → **No spin transition allowed**（這就是 high-spin d⁵ 配合物顏色很淡的原因）
+- 「Forbidden」不是完全不會發生，只是機率非常低 → 吸收訊號**微弱**（ε 很小）
+- d–d 躍遷常受此規則影響 → 這也是為什麼大多數過渡金屬錯合物的顏色不會像螢光筆那麼亮，而是淡淡的
+- **經典考題 — High spin d⁵**（如 [FeF₆]³⁻）：5 個 d 電子各佔一個軌域，自旋全部朝同一方向。要做任何 d-d 躍遷，一個電子必須跳到已有同向電子的軌域 → 但 Pauli 不允許 → 必須翻轉自旋 → **spin-forbidden** → 所以 high-spin d⁵ 幾乎無色或顏色極淡
 
 ---
 
@@ -105,19 +109,24 @@ Light source → Monochromator → Sample → Detector
 
 ### Beer-Lambert Law（複習）
 
+白話說：光穿過樣品，一部分被吃掉（absorbed）。Beer-Lambert Law 說的是：**溶液越濃，或光走的路越長，被吃掉的比例越多 — 而且是等比例的關係**。這就是 UV-Vis 能做定量分析的數學根據。
+
 A = log(I₀/I) = ε·c·l
 
-- I₀：入射強度
-- I：穿過樣品後的強度
-- ε：molar absorptivity（extinction coefficient）
-- c：濃度
-- l：path length
+- **I₀**：打進去的光強度
+- **I**：出來的光強度（被樣品吸收後變弱了）
+- **A**：吸光度 — 就是「被吃掉了多少」的對數表示，A=1 代表只有 10% 的光穿過去
+- **ε**：molar absorptivity — 每個分子「吃光」的能力有多強，是分子的固有性質（不同波長不同）
+- **c**：濃度（mol/L）
+- **l**：光走過的路徑長度（通常 1 cm 的 cuvette）
 
-對於**非均勻樣品**需做非線性校正（Iₒ/I 的指數衰減修正）。
+**限制**：此定律只在**稀溶液**（< 0.01 M）成立 — 濃度太高分子之間會互相影響，A 跟 c 就不再線性。另外，非均勻樣品（混濁液、有散射）也會偏離。
 
 ---
 
 ## (1) Light Sources（光源）
+
+白話說：UV-Vis 儀器需要「燈泡」來產生 UV 和可見光。問題是沒有一種燈能完美涵蓋整個 UV-Vis 範圍，所以歷史上要用兩種燈拼起來。現代 Xenon flash lamp 才終於解決了這個問題。
 
 歷史上有三種主要光源：
 
@@ -183,14 +192,17 @@ A = log(I₀/I) = ε·c·l
 
 ## (3) 光學架構：Double beam vs Single beam
 
+白話說：量吸光度需要比較「有樣品」和「沒樣品」的光強度。問題是光源的亮度會隨時間慢慢飄（drift）。Single beam 先量空白再量樣品，中間光源如果飄了結果就有誤差。Double beam 同時量兩路光，飄移被自動抵消。
+
 ### Single beam
 
 ```
 Source → Monochromator → Sample → Detector
 ```
 
-- 只有一條光路，先量 reference（blank）再換 sample
-- 簡單便宜
+- 先量 reference（blank）→ 換樣品 → 量 sample
+- 優點：簡單便宜
+- 缺點：兩次量測之間光源飄移 → 影響準確度
 
 ### Double beam
 
@@ -201,17 +213,16 @@ Source → 分束
 ```
 
 - 光分成兩路，**同時**通過參考與樣品
-- 自動補償光源漂移、偵測器漂移
-- 結果更穩定、儀器更貴
+- 光源飄移同時影響兩路 → 做比值時**自動抵消**
+- 結果更穩定，但儀器更貴
 
 **關鍵元件：Rotating Mirror / Chopper**
-- 實際 double-beam 儀器常用**旋轉鏡（rotating sector mirror）或斷續器（chopper）**
-- 機制：旋轉鏡以固定頻率（通常幾十 Hz）將光源**輪流切換**到 reference 與 sample 光路
-- 偵測器接收到**交替訊號**，再用鎖相放大器（lock-in amplifier）分離
-- 效益：
-  - 同一偵測器可量兩路光 → 消除偵測器間靈敏度差異
-  - 消除光源慢漂移（時間尺度長於 chopper 頻率）
-  - 等效「**準同時雙光束**」
+
+實際上很多 double-beam 儀器只用**一個偵測器**，靠旋轉鏡快速切換兩路光：
+- 旋轉鏡以幾十 Hz 的頻率輪流把光導到 reference 和 sample 光路
+- 偵測器收到交替訊號（像跑馬燈），用鎖相放大器分離
+- 好處：只用一個偵測器就不用擔心兩個偵測器靈敏度不同的問題
+- 本質上是「**快速交替**」而非真正同時，但因為切換比光源飄移快得多，所以等效於同時量測
 
 ---
 
@@ -221,18 +232,19 @@ Source → 分束
 
 ### Prism（稜鏡）
 
-- 利用**折射率隨波長變化** → 色散
-- 短波長（UV/藍）折射角大，長波長（Red/IR）折射角小
-- **色散非線性**
-- 優點：stray light 少、高精密應用好
-- 缺點：解析度較差、老派
+白話說：彩虹的原理 — 不同顏色的光在玻璃裡折射角度不同，所以白光被展開成光譜。
+
+- 短波長折射角大（UV/藍偏折多），長波長折射角小（紅偏折少）
+- 缺點：**色散非線性** — UV 端波長分很開，紅端擠在一起 → 解析度不均勻
+- 優點：stray light 少（不會像光柵產生高階繞射）
+- 現在基本被 grating 取代，但高精密應用偶爾還用
 
 ### Grating（光柵）
 
-- **diffraction（繞射）** 分光
-- **色散線性、等波長間距**，所有波長解析度相同
-- 現代 UV-Vis 幾乎都用 grating
-- 優點：整譜解析度高
+白話說：光柵是一片刻了很多條平行溝槽的反射鏡。不同波長的光從不同角度繞射出來，就像把光譜「攤開」。
+
+- **色散線性** — 所有波長間距均勻 → 整張光譜的解析度一致
+- 現代 UV-Vis 幾乎都用 grating（尤其 holographic grating，stray light 更低）
 
 ### Dispersive power
 
@@ -265,36 +277,34 @@ Diamond 色散力最強 → 波長分離能力最好。
 
 ### PMT（Photomultiplier Tube）
 
+白話說：PMT 是一台「電子雪崩放大器」。一個光子打出一個電子，這個電子再去撞出更多電子，一級一級像骨牌一樣放大，最終一個光子的信號被放大了一百萬倍。所以 PMT 能看到**極微弱的光**。
+
 **結構**：photocathode（光電陰極）→ 多級 dynodes → anode
 
 **原理**：
 
-1. 光子打 photocathode → 放出電子
-2. 電子在電場作用下打到 dynode → **二次發射（secondary emission）** 放出更多電子
-3. 經過 ~10 級 dynodes → 電流增益 10⁶~10⁷ 倍
-4. 最後由 anode 收集 → 外部電路放大輸出
+1. 光子打 photocathode → 放出 1 個電子
+2. 電子被電場加速，撞到 dynode → **二次發射** 放出 3–5 個電子
+3. 這些電子再撞下一個 dynode → 再放大 3–5 倍
+4. 經過 ~10 級 dynodes → 總增益 10⁶~10⁷ 倍
+5. 最後由 anode 收集 → 外部電路輸出
 
-**特點**：
-
-- 對**稀釋樣品**或**低光訊號**靈敏度極高
-- **寬光譜響應、高 SNR、高穩定性**
-- 必須有低 noise，才能在高光強下分辨 blank 與 sample 的微小差異
+**為什麼重要**：PMT 是 UV-Vis 儀器中**靈敏度最高**的偵測器。測很稀的溶液時（吸光度很小 → 穿透光跟入射光幾乎一樣強），需要 PMT 來分辨那一點點差異
 
 ### Silicon Photodiode
 
-- 光打到半導體 → 電子從 valence band 躍遷到 conduction band → 產生電荷
-- 電荷對光強度**線性響應**
-- 優點：動態範圍寬、robust、response 快、noise 低、便宜
-- 缺點：UV 與 Vis 區靈敏度**比 PMT 差**，但對於不需極高靈敏度的應用夠用
+白話說：跟太陽能電池原理一樣 — 光打到半導體，電子被踢到導帶產生電流。電流大小跟光強度成正比。
+
+- 優點：動態範圍寬（從很暗到很亮都能線性響應）、反應快、noise 低、便宜、耐用
+- 缺點：靈敏度**比 PMT 差**（沒有放大機制，一個光子只產生一個電子）
+- **選擇邏輯**：樣品不太稀、不需要極致靈敏度 → 用 Si photodiode 就夠了，而且更穩定便宜
 
 ### Diode Array Detector（重要）
 
-- **multichannel photon detector**，由多個 photodiodes 排成 array
-- 搭配 grating 把整個光譜**同時**投影到 array 上
-- 優點：
-  - **同時測量所有波長**（不用掃瞄）
-  - 相比 PMT 無光學對準問題
-- 缺點：個別像素靈敏度低於 PMT
+白話說：把幾百個 Si photodiode 排成一列，用 grating 把光譜「攤開」投射到上面 — 每個 diode 接收一個波長。這樣**一次拍照就拿到整張光譜**，不用慢慢掃。概念上跟 FTIR「同時量所有頻率」類似，是速度的革命。
+
+- 優點：**毫秒級取全譜**（適合反應動力學）、無機械運動部件
+- 缺點：單點靈敏度低於 PMT（每個小 diode 的面積小、沒有放大）
 
 ### CCD Detector
 
@@ -314,12 +324,15 @@ Diamond 色散力最強 → 波長分離能力最好。
 
 ## Stray Light 與 Photometric Linearity
 
-- 儀器 stray light 差 → Beer's Law 線性偏離
-  - 0% stray light → 理想線性
-  - 0.1% → 輕微偏離（高 A 時顯著）
-  - 1% → 明顯偏離
-  - 10% → 嚴重偏離
-- 樣品吸收越高 → 到達偵測器的光越少 → SNR 下降、信號出現 spiky noise
+白話說：**Stray light（雜散光）** 是指不該到達偵測器的光 — 比如光柵散射出的雜光、儀器內壁反射的光。這些光沒有被樣品吸收，但偵測器分不清它是穿透光還是雜光，所以會「灌水」讓你以為樣品吸收沒那麼多。
+
+**Stray light 越多 → 高吸光度時偏離 Beer's Law 越嚴重**：
+- 0% stray light → 理想線性（不存在的理想情況）
+- 0.1% → 輕微偏離（A > 2 時開始看到）
+- 1% → 明顯偏離（A > 1.5 就不可靠）
+- 10% → 嚴重偏離（完全不能定量）
+
+**為什麼高 A 值時最嚴重**：A=3 代表只有 0.1% 的光穿過去。如果 stray light 就有 0.1%，偵測器收到的光有一半是假的 → 結果完全不對。所以實際量測時 **A 超過 2 就要小心**，超過 3 基本不可信。
 
 ---
 
@@ -375,24 +388,28 @@ Diamond 色散力最強 → 波長分離能力最好。
 
 ### (5) Band Gap Energies（半導體）
 
+白話說：半導體有一個**能量門檻（band gap Eg）**— 光子能量低於 Eg 就穿透，高於 Eg 就被吸收。所以從 UV-Vis 吸收譜可以反推 Eg 的大小。Tauc plot 就是這個反推的數學工具。
+
 **Tauc plot** 方法：
 
-- 從 UV-Vis 吸收譜算半導體的光學 band gap Eg
-- 公式（amorphous 半導體，Tauc 1966）：
-  ```
-  (α·hν)^(1/2) = B(hν − Eg)
-  ```
-- α：energy-dependent absorption coefficient
-- hν：photon energy
-- B：band tailing parameter（amorphous 材料取 1）
+公式（amorphous 半導體，Tauc 1966）：
+```
+(α·hν)^(1/2) = B(hν − Eg)
+```
+- **α**：吸收係數（從 UV-Vis 譜的 absorbance 換算）
+- **hν**：入射光子的能量（= 1240/λ(nm) eV）
+- **Eg**：就是我們要求的 band gap
+- **B**：材料常數
 
-- **晶體半導體**：把 1/2 指數換成 γ⁻¹：
-  - γ = 1/2（direct allowed）
-  - γ = 2（indirect allowed）
-  - γ = 2/3（direct forbidden）
-  - γ = 3（indirect forbidden）
+**直覺理解**：光子能量 < Eg 時，(hν − Eg) 是負的 → 沒有吸收。光子能量剛好超過 Eg → 吸收開始出現並隨能量增加。
 
-**操作**：畫 (α·hν)^(1/γ) vs hν 的 Tauc plot → 取線性段外插到 x 軸 → 截距 = Eg
+**晶體半導體**：根據躍遷類型，指數不同：
+- γ = 1/2（direct allowed）→ 畫 (αhν)² vs hν
+- γ = 2（indirect allowed）→ 畫 (αhν)^(1/2) vs hν
+- γ = 2/3（direct forbidden）→ 畫 (αhν)^(3/2) vs hν
+- γ = 3（indirect forbidden）→ 畫 (αhν)^(1/3) vs hν
+
+**怎麼操作**：畫 (αhν)^(1/γ) vs hν → 找到吸收邊上升最陡的線性段 → **外插到 x 軸** → 那個截距就是 Eg。TiO₂ 做出來大約 Eg ≈ 3.2 eV
 
 **範例**：TiO₂ / MO + TiO₂ 複合物的 Tauc plot 分析：
 
@@ -400,101 +417,3 @@ Diamond 色散力最強 → 波長分離能力最好。
 - 加 MO 後 Eg 微調
 
 ---
-
-## Exercise 解答（考試題型）
-
-### Q1. In the IR spectrum of aromatic compound, C–H stretching vs C–C stretching 哪個頻率較高？用 bond strength（力常數）與 reduced mass 解釋。
-
-**答**：**C–H stretching 頻率較高**。
-
-- 由 Hooke's Law：v̄ = (1/2πc)·√(f/μ)
-- **μ（reduced mass）**：C–H 中 H 很輕 → μ_CH ≈ 0.92；C–C 中兩個 C → μ_CC ≈ 6 → μ_CH ≪ μ_CC → v̄_CH > v̄_CC
-- **f（力常數）**：雖然 aromatic C–C 有部分雙鍵性質（force constant 比單鍵強），但 C–H 力常數也不低
-- 綜合：**μ 的差異主導 → C–H 振動頻率遠高於 C–C 振動**
-- 數據對照：aromatic C–H stretch 3100–3000 cm⁻¹；aromatic C–C stretch 1600–1400 cm⁻¹
-
-### Q2. Grating-based IR spectroscopy 與 FTIR 的主要差別？
-
-**答**：
-
-- **Grating-based IR**：用 grating monochromator 一次挑選**一個波長**送進 sample，掃全頻需逐波長進行
-  - 慢、SNR 較差、解析度較差
-- **FTIR**：用 **Michelson interferometer** **同時量測所有 IR 頻率**，得到 interferogram，經過 Fast Fourier Transform 轉成光譜
-  - 快（數秒完成）
-  - SNR 更好（multiplex/Fellgett 優勢：所有頻段同時收訊，噪音被平均）
-  - 解析度更高（Δv̄ = 1/δ_max，動鏡位移越大解析度越高）
-- **應用**：兩者都用於辨識官能基與化合物
-
-### Q3. 哪種 detector 可以同時用在 IR（FTIR）與 UV-Vis-NIR 吸收光譜儀？
-
-**答**：**InGaAs photodiode**
-
-- 波長範圍 800–2500 nm，橫跨 **Vis–NIR–短波 IR（SWIR）**
-- UV-Vis-NIR 儀器常用作 NIR 通道的偵測器
-- 在 FTIR 的 near-IR 區也能用（例：12500–3800 cm⁻¹ 範圍的 InGaAs/glass 偵測器）
-- 另一個候選：**PbS**（1000–3500 nm），也能橫跨 near-IR 區，常見於 UV-Vis-NIR 儀器與 near-IR FTIR
-
----
-
-## 重要公式與數字
-
-```
-A = log(I₀/I) = εcl                Beer-Lambert Law
-ΔS = 0                             Spin selection rule
-(αhν)^(1/2) = B(hν − Eg)           Tauc plot (amorphous)
-(αhν)^(1/γ) vs hν                  Tauc plot (crystalline, γ=1/2,2,2/3,3)
-
-UV 範圍:            200–400 nm
-Visible:            400–800 nm
-D2 lamp:            185–400 nm (UV 連續)
-Tungsten-halogen:   350–3000 nm (Vis-NIR)
-Xenon flash:        185–2500 nm (整段)
-
-Quartz cuvette:     170–2700 nm (UV/Vis/NIR 全通)
-Optical glass:      334–2500 nm (不能 UV)
-Plastic:            340–800 nm  (便宜)
-
-Silicon photodiode: 170–1100 nm
-PMT:                200–900 nm (高靈敏度)
-InGaAs:             800–2500 nm
-PbS:                1000–3500 nm
-```
-
----
-
-## Flashcards
-
-UV-Vis spectroscopy 的波長範圍？::UV 200–400 nm，Visible 400–800 nm
-UV-Vis 與 IR 激發的能階有何不同？::UV-Vis 激發電子躍遷，IR 激發分子振動
-UV-Vis 三種主要電子躍遷？::π→π*（不飽和化合物）、n→π*（有 lone pair）、d-d（過渡金屬錯合物）
-為什麼過渡金屬錯合物常有鮮豔的顏色？::因為 d-d 躍遷吸收 visible 光
-UV-Vis 的 spin selection rule？::ΔS = 0；允許 singlet→singlet、triplet→triplet；禁止改變 spin 多重度
-為什麼 high-spin d⁵ 配合物顏色淡？::5 個 d 電子自旋相同，任何 d-d 躍遷都會改變自旋 → spin-forbidden
-UV-Vis 吸收峰為何是寬峰不是尖峰？::振動與旋轉能階疊加在電子能階上，吸收峰是多個躍遷的包絡線
-Beer-Lambert Law 的公式？::A = log(I₀/I) = εcl
-UV-Vis 歷史三大光源？::Deuterium D2 lamp (UV)、Tungsten-halogen (Vis/NIR)、Xenon flash (全段)
-D2 lamp 的特性？::UV 連續光源 185–400 nm，但 noise 高，half-life 只有 ~1000 hr
-Tungsten-halogen lamp 的特性？::Vis–NIR 350–3000 nm、低 noise、壽命 ~10000 hr
-Xenon flash lamp 的優勢？::185–2500 nm 單一光源覆蓋 UV+Vis+NIR，閃燈式短曝光適合光敏樣品，不需暖機
-做 UV 測量一定要用哪種 cuvette？為什麼？::Quartz（170–2700 nm），玻璃與塑膠在 UV 會自己吸收
-Optical glass cuvette 的波長範圍？::334–2500 nm，不能測 UV
-UV 分析常見的首選溶劑？::水（UV 透過性好）
-Single beam 與 double beam 的差別？::Single 一條光路需分次量參考與樣品；Double 同時量參考與樣品可自動補償漂移
-Prism 與 Grating monochromator 的色散差別？::Prism 用折射率色散非線性；Grating 用繞射色散線性、解析度更好，現代主流
-哪種材質的色散力最強？::Diamond，Δn (410–660 nm) ≈ 0.048
-UV-Vis detector 的共同物理原理？::光電效應（photoelectric effect）
-PMT 的工作原理？::光子打 photocathode 放出電子 → 經多級 dynode secondary emission 放大 10⁶ 倍 → anode 收集
-為什麼 PMT 適合測稀溶液？::低光訊號下靈敏度極高、noise 低、寬光譜響應
-Silicon photodiode 相對於 PMT 的優劣？::動態範圍寬、快、noise 低、便宜；但 UV/Vis 靈敏度比 PMT 差
-Diode array detector 的優點？::多通道同時量所有波長，無對準問題，掃瞄快
-NIR 區最常用的偵測器？::PbS photoresistor（1000–3500 nm），InGaAs photodiode（800–2500 nm）
-UV-Vis 對水溶液友善的原因？::水在 UV-Vis 區幾乎不吸收
-UV-Vis 的主要缺點？::結構資訊有限、複雜樣品吸收峰重疊、UV 溶劑透明度受限
-什麼是 Tauc plot？::從 UV-Vis 吸收譜計算半導體光學 band gap 的方法
-Amorphous 半導體的 Tauc plot 公式？::(αhν)^(1/2) = B(hν − Eg)
-Tauc plot 如何求 Eg？::畫 (αhν)^(1/γ) vs hν，取線性段外插到 x 軸，截距 = Eg
-為什麼奈米金粒子能用 UV-Vis 測粒徑？::plasmon resonance 吸收峰位置隨粒徑變化（粒徑越大越紅移）
-可同時用在 IR 與 UV-Vis-NIR 的 detector？::InGaAs（800–2500 nm）與 PbS（1000–3500 nm）都能跨到 near-IR
-aromatic 化合物中 C-H stretch 與 C-C stretch 哪個波數較高？為什麼？::C-H 較高（~3000 vs ~1500 cm⁻¹），因為 μ_CH 遠小於 μ_CC（H 原子很輕），由 v̄ ∝ 1/√μ 決定
-FTIR 相對 grating IR 最大優勢？::同時量全波段（multiplex 優勢）、更快、更高 SNR、更高解析度
-為什麼 UV-Vis 可做定量？::Beer-Lambert Law：吸光度與濃度成正比

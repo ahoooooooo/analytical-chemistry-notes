@@ -122,6 +122,14 @@ const reviews = [
     date: "2026-04-16",
     path: "03-Exam-Prep/GPT總整理-08-文獻補充與答題格式.md",
   },
+  {
+    id: "review9",
+    label: "R9",
+    title: "預測考題 + 遺漏補充",
+    subtitle: "20 題預測考題含完整答案、遺漏重點、必背數字",
+    date: "2026-04-16",
+    path: "03-Exam-Prep/GPT總整理-09-預測考題與遺漏補充.md",
+  },
 ];
 
 const notes = [...lectures, ...reviews];
