@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f26a3d">
+  <title>分析化學筆記</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <p class="eyebrow">Analytical Chemistry Notes</p>
+      <h1>分析化學手機筆記站</h1>
+      <p class="hero-copy">
+        針對手機閱讀重排的四份講義。保留原始 Markdown 內容，改用單頁式介面閱讀、切換與跳轉。
+      </p>
+      <div class="hero-meta">
+        <span>課程：分析化學</span>
+        <span>格式：Mobile-first</span>
+        <span>內容：L1 / L3 / L4 / L5</span>
+      </div>
+    </header>
+
+    <nav class="note-nav" aria-label="Lecture navigation">
+      <div class="note-pills" id="note-pills"></div>
+    </nav>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <section class="panel">
+          <p class="panel-label">Lectures</p>
+          <div class="lecture-list" id="lecture-list"></div>
+        </section>
+
+        <section class="panel">
+          <p class="panel-label">Jump To</p>
+          <div class="toc-list" id="toc-list">
+            <p class="muted">載入中…</p>
+          </div>
+        </section>
+      </aside>
+
+      <section class="reader">
+        <div class="reader-head">
+          <div>
+            <p class="reader-kicker" id="reader-kicker">L1</p>
+            <h2 id="reader-title">載入中…</h2>
+            <p class="reader-subtitle" id="reader-subtitle"></p>
+          </div>
+          <a class="source-link" id="source-link" href="#" target="_blank" rel="noreferrer">看 GitHub 原檔</a>
+        </div>
+
+        <article class="note-body prose" id="note-body" aria-live="polite">
+          <p class="muted">正在整理內容…</p>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
